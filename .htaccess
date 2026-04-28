@@ -1,0 +1,50 @@
+# Options de sécurité
+Options -Indexes
+
+# Charset par défaut (corrige les problèmes d'encodage UTF-8)
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .php .html .css .js
+
+# Réécriture d'URL (URLs propres)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /magic-brush/
+
+    # Rediriger vers HTTPS (désactivé en dev local, activer en production)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Empêcher l'accès direct aux dossiers sensibles
+    RewriteRule ^config/ - [F,L]
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
+
+# En-têtes de sécurité
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Compression Gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript text/plain
+</IfModule>
+
+# Cache navigateur pour les assets statiques
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+# Protéger les fichiers sensibles
+<FilesMatch "(\.env|config\.php|composer\.json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

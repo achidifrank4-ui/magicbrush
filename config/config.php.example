@@ -1,0 +1,16 @@
+<?php
+// config/config.php.example
+// Copiez ce fichier en config/config.php et renseignez vos valeurs
+
+define('DB_HOST',     'localhost');
+define('DB_NAME',     'magic_brush');
+define('DB_USER',     'root');
+define('DB_PASS',     '');
+define('DB_CHARSET',  'utf8mb4');
+
+define('SITE_URL',    'http://localhost/magic-brush');
+define('SITE_NAME',   'Magic Brush');
+
+// Clés Stripe (mode test → obtenir sur https://dashboard.stripe.com)
+define('STRIPE_PUBLIC_KEY',  'pk_test_VOTRE_CLE_PUBLIQUE');
+define('STRIPE_SECRET_KEY',  'sk_test_VOTRE_CLE_SECRETE');

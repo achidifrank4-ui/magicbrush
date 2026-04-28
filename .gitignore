@@ -1,0 +1,39 @@
+# ================================
+# Magic Brush — .gitignore
+# ================================
+
+# Fichiers de configuration sensibles (clés API, BDD)
+config/config.php
+
+# Dépendances
+/vendor/
+node_modules/
+
+# Uploads utilisateurs (ne pas versionner les images uploadées)
+assets/img/uploads/*
+!assets/img/uploads/.gitkeep
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+/logs/
+
+# Cache
+*.cache
+/cache/
+
+# Editeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Scripts de dev locaux
+sync-to-xampp.ps1
+
+# Fichiers XAMPP (copie locale)
+# (le projet source est ici, pas dans htdocs)

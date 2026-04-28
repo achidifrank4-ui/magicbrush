@@ -1,0 +1,212 @@
+/* assets/css/admin.css — Styles du Back-office Magic Brush */
+
+:root {
+    --admin-sidebar-width: 250px;
+    --admin-bg: #f4f6f9;
+    --admin-sidebar-bg: #1e2a1f;
+}
+
+body.admin-body {
+    display: flex;
+    background-color: var(--admin-bg);
+    min-height: 100vh;
+    font-family: var(--font-body);
+    color: var(--color-text);
+}
+
+/* =========================================
+   SIDEBAR
+   ========================================= */
+.admin-sidebar {
+    width: var(--admin-sidebar-width);
+    background-color: var(--admin-sidebar-bg);
+    color: white;
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.admin-brand {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-bg);
+    padding: 1.75rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.admin-nav {
+    padding: 1rem 0;
+    flex: 1;
+}
+
+.admin-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.5rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+}
+
+.admin-nav-link i { font-size: 1.2rem; }
+
+.admin-nav-link:hover,
+.admin-nav-link.active {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border-left: 3px solid var(--color-primary);
+    padding-left: calc(1.5rem - 3px);
+}
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+.admin-main {
+    margin-left: var(--admin-sidebar-width);
+    flex: 1;
+    padding: 0 2rem 2rem;
+    min-height: 100vh;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.admin-header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+/* =========================================
+   KPI CARDS
+   ========================================= */
+.admin-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.admin-kpi-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: var(--transition);
+}
+
+.admin-kpi-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.kpi-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.kpi-value {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.kpi-label {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-top: 0.25rem;
+}
+
+/* =========================================
+   CARDS ET TABLEAUX
+   ========================================= */
+.admin-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.admin-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--color-border);
+    color: var(--color-text-light);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+}
+
+.admin-table tbody tr:hover { background-color: var(--admin-bg); }
+.admin-table tbody tr:last-child td { border-bottom: none; }
+
+/* =========================================
+   FORMULAIRES ADMIN
+   ========================================= */
+.admin-form-group {
+    margin-bottom: 1.25rem;
+}
+
+.admin-form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+.admin-form-group input,
+.admin-form-group select,
+.admin-form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.admin-form-group input:focus,
+.admin-form-group select:focus,
+.admin-form-group textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(122, 158, 126, 0.15);
+}
