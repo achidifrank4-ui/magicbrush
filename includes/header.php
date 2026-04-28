@@ -32,7 +32,7 @@ $cart_count = 0;
         <nav class="navbar">
             <a href="index.php" class="brand-logo">
                 <?php if (file_exists(__DIR__ . '/../assets/img/logo-VosSC8x9.png')): ?>
-                <img src="assets/img/logo-VosSC8x9.png" alt="Magic Brush" style="height: 40px; width: auto;">
+                <img src="assets/img/logo-VosSC8x9.png" alt="Magic Brush" style="height: 90px; width: auto;">
                 <?php else: ?>
                 <i class="ph-fill ph-paw-print"></i> Magic Brush
                 <?php endif; ?>
